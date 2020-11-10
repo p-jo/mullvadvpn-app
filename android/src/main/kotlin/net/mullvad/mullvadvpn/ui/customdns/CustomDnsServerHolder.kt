@@ -17,6 +17,12 @@ class CustomDnsServerHolder(view: View, adapter: CustomDnsAdapter) : CustomDnsIt
     }
 
     init {
+        view.findViewById<View>(R.id.click_area).setOnClickListener {
+            serverAddress?.let { address ->
+                adapter.editDnsServer(address)
+            }
+        }
+
         view.findViewById<View>(R.id.remove).setOnClickListener {
             serverAddress?.let { address ->
                 adapter.removeDnsServer(address)
